@@ -1,8 +1,8 @@
-package ClasesDTO;
+package clasesDAO;
 
 import java.util.*;
 
-public class InmuebleDTO extends BaseDTO{
+public class InmuebleDAO extends BaseDAO{
 
 	private int idInmueble;
 	private Date fechaAlta;
@@ -23,23 +23,23 @@ public class InmuebleDTO extends BaseDTO{
 	private boolean telefono;
 	private boolean lavadero;
 	private boolean pavimiento;
-	private OrientacionDTO orientacion;
-	private TipoInmuebleDTO tipoInmueble;
-	private PropietarioDTO propietario;
-	private LocalidadDTO localidad;
-	private BarrioDTO barrio;
-	private EstadoInmuebleDTO estado;
-	private DireccionDTO direccion;
+	private OrientacionDAO orientacion;
+	private TipoInmuebleDAO tipoInmueble;
+	private PropietarioDAO propietario;
+	private LocalidadDAO localidad;
+	private BarrioDAO barrio;
+	private EstadoInmuebleDAO estado;
+	private DireccionDAO direccion;
 	
-	public InmuebleDTO(int idInmueble, Date fechaAlta, int precioVenta,
+	public InmuebleDAO(int idInmueble, Date fechaAlta, int precioVenta,
 			String foto, int frente, int fondo, int dormitorio, int banio,
 			int antiguedad, boolean propiedadHorizontal, boolean garage,
 			boolean patio, boolean pileta, boolean gasNatural, boolean cloacas,
 			boolean aguaCorriente, boolean telefono, boolean lavadero,
-			boolean pavimiento, OrientacionDTO orientacion,
-			TipoInmuebleDTO tipoInmueble, PropietarioDTO propietario,
-			LocalidadDTO localidad, BarrioDTO barrio, EstadoInmuebleDTO estado,
-			DireccionDTO direccion) {
+			boolean pavimiento, OrientacionDAO orientacion,
+			TipoInmuebleDAO tipoInmueble, PropietarioDAO propietario,
+			LocalidadDAO localidad, BarrioDAO barrio, EstadoInmuebleDAO estado,
+			DireccionDAO direccion) {
 		super();
 		this.idInmueble = idInmueble;
 		this.fechaAlta = fechaAlta;
@@ -221,59 +221,59 @@ public class InmuebleDTO extends BaseDTO{
 		this.pavimiento = pavimiento;
 	}
 
-	public OrientacionDTO getOrientacion() {
+	public OrientacionDAO getOrientacion() {
 		return orientacion;
 	}
 
-	public void setOrientacion(OrientacionDTO orientacion) {
+	public void setOrientacion(OrientacionDAO orientacion) {
 		this.orientacion = orientacion;
 	}
 
-	public TipoInmuebleDTO getTipoInmueble() {
+	public TipoInmuebleDAO getTipoInmueble() {
 		return tipoInmueble;
 	}
 
-	public void setTipoInmueble(TipoInmuebleDTO tipoInmueble) {
+	public void setTipoInmueble(TipoInmuebleDAO tipoInmueble) {
 		this.tipoInmueble = tipoInmueble;
 	}
 
-	public PropietarioDTO getPropietario() {
+	public PropietarioDAO getPropietario() {
 		return propietario;
 	}
 
-	public void setPropietario(PropietarioDTO propietario) {
+	public void setPropietario(PropietarioDAO propietario) {
 		this.propietario = propietario;
 	}
 
-	public LocalidadDTO getLocalidad() {
+	public LocalidadDAO getLocalidad() {
 		return localidad;
 	}
 
-	public void setLocalidad(LocalidadDTO localidad) {
+	public void setLocalidad(LocalidadDAO localidad) {
 		this.localidad = localidad;
 	}
 
-	public BarrioDTO getBarrio() {
+	public BarrioDAO getBarrio() {
 		return barrio;
 	}
 
-	public void setBarrio(BarrioDTO barrio) {
+	public void setBarrio(BarrioDAO barrio) {
 		this.barrio = barrio;
 	}
 
-	public EstadoInmuebleDTO getEstado() {
+	public EstadoInmuebleDAO getEstado() {
 		return estado;
 	}
 
-	public void setEstado(EstadoInmuebleDTO estado) {
+	public void setEstado(EstadoInmuebleDAO estado) {
 		this.estado = estado;
 	}
 
-	public DireccionDTO getDireccion() {
+	public DireccionDAO getDireccion() {
 		return direccion;
 	}
 
-	public void setDireccion(DireccionDTO direccion) {
+	public void setDireccion(DireccionDAO direccion) {
 		this.direccion = direccion;
 	}
 	

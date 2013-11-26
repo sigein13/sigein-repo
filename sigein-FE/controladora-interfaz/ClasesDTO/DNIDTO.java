@@ -1,6 +1,6 @@
 package ClasesDTO;
 
-public class DNIDTO {
+public class DNIDTO extends BaseDTO{
 	private String tipoDNI;
 	private int numeroDNI;
 	

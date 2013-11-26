@@ -1,17 +1,17 @@
-package ClasesDTO;
+package clasesDAO;
 
-public class PropietarioDTO extends BaseDTO {
+public class PropietarioDAO extends BaseDAO {
 	private int idPropietario;
 	private String nombre;
 	private String apellido;
 	private int telefono;
-	private LocalidadDTO localidad;
-	private BarrioDTO barrio;
+	private LocalidadDAO localidad;
+	private BarrioDAO barrio;
 	private String correoElectronico;
-	private TipoDocumentoDTO tipoDoc;
-	public PropietarioDTO(int idPropietario, String nombre, String apellido,
-			int telefono, LocalidadDTO localidad, BarrioDTO barrio,
-			String correoElectronico, TipoDocumentoDTO tipoDoc) {
+	private TipoDocumentoDAO tipoDoc;
+	public PropietarioDAO(int idPropietario, String nombre, String apellido,
+			int telefono, LocalidadDAO localidad, BarrioDAO barrio,
+			String correoElectronico, TipoDocumentoDAO tipoDoc) {
 		super();
 		this.idPropietario = idPropietario;
 		this.nombre = nombre;
@@ -46,16 +46,16 @@ public class PropietarioDTO extends BaseDTO {
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
-	public LocalidadDTO getLocalidad() {
+	public LocalidadDAO getLocalidad() {
 		return localidad;
 	}
-	public void setLocalidad(LocalidadDTO localidad) {
+	public void setLocalidad(LocalidadDAO localidad) {
 		this.localidad = localidad;
 	}
-	public BarrioDTO getBarrio() {
+	public BarrioDAO getBarrio() {
 		return barrio;
 	}
-	public void setBarrio(BarrioDTO barrio) {
+	public void setBarrio(BarrioDAO barrio) {
 		this.barrio = barrio;
 	}
 	public String getCorreoElectronico() {
@@ -64,10 +64,10 @@ public class PropietarioDTO extends BaseDTO {
 	public void setCorreoElectronico(String correoElectronico) {
 		this.correoElectronico = correoElectronico;
 	}
-	public TipoDocumentoDTO getTipoDoc() {
+	public TipoDocumentoDAO getTipoDoc() {
 		return tipoDoc;
 	}
-	public void setTipoDoc(TipoDocumentoDTO tipoDoc) {
+	public void setTipoDoc(TipoDocumentoDAO tipoDoc) {
 		this.tipoDoc = tipoDoc;
 	}
 	
