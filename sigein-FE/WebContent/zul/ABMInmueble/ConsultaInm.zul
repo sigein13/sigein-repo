@@ -1,0 +1,23 @@
+<?page title="..:: SigeiM ::.."?>
+<zk>
+    <borderlayout hflex="1" vflex="1">
+        <north height="200px" border="none" >
+            <include src="/pagina-general/banner.zul"/>
+        </north>
+        <west width="230px" border="0" flex="true" splittable="true" 
+         minsize="300">
+                 <include src="/pagina-general/oeste.zul"/>
+        </west>
+        <east width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/este.zul"/>
+        </east>
+        <center id="mainContent" autoscroll="true" style="background:#abd2f6" border="0">
+            
+            <include src="/zul/ABMInmueble/mainConsulta.zul"/>
+			
+        </center>
+        <south height="50px" border="none">
+            <include src="/pagina-general/footer.zul"/>
+        </south>
+    </borderlayout>
+</zk>

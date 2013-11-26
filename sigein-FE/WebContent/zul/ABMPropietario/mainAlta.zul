@@ -1,0 +1,113 @@
+<window apply="controlador.ABMPropietario.ControladorAltaPropietario" title="ABM Propietario" border="normal" width="100%" height="100%">
+<style src="/estilo/estilo-principal.css" dynamic="true"/>
+<grid>
+	
+	<rows>
+		<row>
+		<cell colspan="3" style="text-align:center" height="30px">
+			<hlayout>
+				<label value="Nombre Propietario: " width="150px" />
+	        	<textbox id="nombrePropitario" sclass="input_upper" width="150px" tabindex="1" />
+	        </hlayout>
+	    </cell>
+	    
+        </row>
+        
+        
+        <row>
+		<cell colspan="3" style="text-align:center" height="30px">
+			<hlayout>
+				<label value="Apellido Propietario: " width="150px" />
+	        	<textbox id="apellidoPropietario" sclass="input_upper" width="150px" tabindex="2" />
+	        </hlayout>
+	    </cell>
+        </row>
+        
+        <row>
+		<cell colspan="3" style="text-align:center" height="30px">
+			<hlayout>
+				<label value="Tipo DNI: " width="150px" />
+				<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('controladores.controladoresComboBox.controladorTipoDNI')" >
+				<combobox id="comboDNI" width="75px" model="@load(vm.tiposDNI)" 
+				selectedItem="@bind(vm.tipoDNI)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+                <label value="Numero: " width="150px" />
+                <intbox id="numeroDNI" constraint="no negative" width="150px" maxlength="8"/>
+	        </hlayout>
+	    </cell>
+        </row>
+        
+        <row>
+        <cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+        		<label value="Calle: " width="150px" />
+        		<textbox id="nombreCalle" sclass="input_upper" width="150px" tabindex="2" />
+        		<label value="Número Calle: " width="150px" />
+        		<intbox id="numeroCalle" constraint="no negative" width="150px" />
+        	</hlayout>
+        </cell>
+        </row>
+        
+        <row>
+        <cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+        		<label value="Provincia: " width="150px" />
+        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmProv') @init('controladores.controladoresComboBox.ControladorProvincia')" >
+				<combobox id="comboProvincia" width="125px" model="@load(vmProv.provincias)" 
+				selectedItem="@bind(vmProv.provincia)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+        	</hlayout>
+        </cell>
+        </row>
+        
+        <row>
+        <cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+        		<label value="Localidad: " width="150px" />
+        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmLoc') @init('controladores.controladoresComboBox.ControladorLocalidad')" >
+				<combobox id="comboLocalidad" width="125px" model="@load(vmLoc.localidades)" 
+				selectedItem="@bind(vmLoc.localidad)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+                
+                <button id="cargaLocalidad" label="Cargar Localidad"/>
+                <textbox id="localidadNueva" width="150px"/>
+                <button id="nuevaLocalidad" label="Nueva Localidad"/>
+        	</hlayout>
+        </cell>
+        </row>
+        
+        <row>
+        	<cell colspan="3" style="text-align:center" height="30px">
+        		<hlayout>
+	        	<label value="Teléfono: " width="150px" />
+	            <textbox id="numeroTelefono" constraint="no negative,no zero" width="150px"/>
+	            </hlayout>
+            </cell>
+        </row>
+        
+        <row>
+        	<cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+	        	<label value="Email: " width="150px" />
+	        	<textbox width="150px" constraint="/.+@.+\.[a-z]+/: Ingresa una dirección de mail correcta" />
+	        </hlayout>
+        	</cell>
+        </row>
+        
+        <row>
+        <cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+        		<button id="cargaPropietario" label="Cargar Propietario"/>
+        	</hlayout>
+        </cell>
+        </row>
+        
+	</rows>
+</grid>
+</window>

@@ -1,0 +1,12 @@
+/*Ingreso de caracteres en mayusculas*/
+.input_upper {
+	text-transform: uppercase;
+}
+
+.z-comboitem {
+    padding-bottom:4px;
+}
+
+.titulo1{
+	font-size: 20px;
+}

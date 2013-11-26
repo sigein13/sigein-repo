@@ -1,0 +1,241 @@
+<?page title="..:: SigeiM ::.."?>
+<zk>
+<style src="/estilo/estilo-principal.css" dynamic="true"/>
+    <borderlayout hflex="1" vflex="1">
+        <north height="100px" border="none" >
+            <include src="/pagina-general/banner.zul"/>
+        </north>
+        <west width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/oeste.zul"/>
+        </west>
+        <east width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/este.zul"/>
+        </east>
+        <center id="mainContent" autoscroll="true">
+        
+        <window apply="controlador.ABMInmueble.ControladorAltaInmueble1" contentStyle="overflow:auto;" 
+        title="Alta Inmueble" border="normal" width="100%" height="100%">
+        
+        <panel id="divisor1">	
+        <panelchildren>
+        	<grid id="grilla1">
+        	<rows>
+        		<row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<label value="Provincia: " width="150px" />
+		        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmProv') @init('controladores.controladoresComboBox.ControladorProvincia')" >
+						<combobox id="comboProvincia" width="125px" model="@load(vmProv.provincias)" 
+						selectedItem="@bind(vmProv.provincia)">
+		                	<comboitem label="@load(each)"/>
+		                </combobox>
+		                </div>
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<label value="Localidad: " width="150px" />
+		        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmLoc') @init('controladores.controladoresComboBox.ControladorLocalidad')" >
+						<combobox id="comboLocalidad" width="125px" model="@load(vmLoc.localidades)" 
+						selectedItem="@bind(vmLoc.localidad)">
+		                	<comboitem label="@load(each)"/>
+		                </combobox>
+		                </div>
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+		        		<label value="Calle: " width="150px" />
+		        		<textbox id="nombreCalle" sclass="input_upper" width="150px" tabindex="2" />
+		        		<label value="Número Calle: " width="150px" />
+		        		<intbox id="numeroCalle" constraint="no negative" width="150px" />
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+		        		<label value="Piso: " width="150px" />
+		        		<textbox id="pisoDpto" sclass="input_upper" width="150px" tabindex="2" />
+		        		<label value="Departamento: " width="150px" />
+		        		<textbox id="dpto" width="150px" />
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<label value="Barrio: " width="150px" />
+		        		<textbox id="barrio" sclass="input_upper" width="150px" tabindex="2" />
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<label value="Tipo Inmueble: " width="150px" />
+		        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmInm') @init('controladores.controladoresComboBox.ControladorTipoInmueble')" >
+						<combobox id="comboInmueble" width="75px" model="@load(vmInm.tiposInmuebles)" 
+						selectedItem="@bind(vmInm.tipoInmueble)">
+		                	<comboitem label="@load(each)"/>
+		                </combobox>
+		                </div>
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<label value="Seleccione Orientación: " width="150px" />
+		        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmOr') @init('controladores.controladoresComboBox.ControladorOrientacion')" >
+						<combobox id="comboOrientacion" width="150px" model="@load(vmOr.orientaciones)" 
+						selectedItem="@bind(vmOr.orientacion)">
+		                	<comboitem label="@load(each)"/>
+		                </combobox>
+		                </div>
+		                <label value="Superficie (metros cuadrados): " width="150px" />
+		                <intbox id="superficie" width="150px" tabindex="2" />
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		                <label value="Frente (metros): " width="150px" />
+		                <intbox id="frente" width="150px" tabindex="2" />
+		                <label value="Fondo (metros): " width="150px" />
+		                <intbox id="fondo" width="150px" tabindex="2" />
+		        	</hlayout>
+		        </cell>
+		        </row>
+		        
+		        <row>
+		        <cell colspan="3" style="text-align:center" height="30px">
+		        	<hlayout>
+		        		<button id="siguiente" label="Siguiente"/>
+		        	</hlayout>
+		        </cell>
+		        </row>
+        	</rows>
+        	</grid>
+        	</panelchildren>
+         </panel>
+         
+         <panel id="divisor2">
+         <panelchildren>
+         <hlayout style="text-align:center">
+				Carga de los datos de edificio.
+			</hlayout>
+			<radiogroup id="sv1" />
+        	<grid id="grilla2">
+        	<rows>
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        				<label value="Propiedad Horizontal: " width="150px" />
+        				<radio id="radio1" label="Si" radiogroup="sv1" />
+        				<radio id="radio2" label="No" radiogroup="sv1" />	
+        			</hlayout>
+        			</cell>
+        		</row>
+        		
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        				<label value="Antigüedad: " width="150px" />
+        				<intbox id="antiguedad" width="150px" tabindex="2" />
+        			</hlayout>
+        			</cell>        		
+        		</row>
+        		
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        				<label value="Dormitorios: " width="150px" />
+        				<intbox id="dormitorios" width="150px" tabindex="2" />
+        				<label value="Baños: " width="150px" />
+        				<intbox id="banios" width="150px" tabindex="2" />
+        			</hlayout>
+        			</cell>        		
+        		</row>
+        		
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        			<checkbox id="checkGarage" label="Garage/Cochera" />
+        			<checkbox id="checkAgua" label="Agua Corriente" />
+        			<checkbox id="checkPatio" label="Patio" />
+        			<checkbox id="checkPavimento" label="Pavimento" />
+        			</hlayout>
+        			</cell>
+        		</row>
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        			<checkbox id="checkPiscina" label="Piscina" />
+        			<checkbox id="checkGas" label="Gas Natural" />
+        			<checkbox id="checkCloaca" label="Cloacas" />
+        			</hlayout>
+        			</cell>
+        		</row>
+        		<row>
+        			<cell colspan="3" style="text-align:center" height="30px">
+        			<hlayout>
+        			<checkbox id="checkAguaCaliente" label="Agua Caliente" />
+        			<checkbox id="checkTelefono" label="Telefono" />
+        			<checkbox id="checkLavadero" label="Lavadero" />
+        			</hlayout>
+        			</cell>
+        		</row>
+        				
+        	</rows>
+        	</grid>
+         	
+         	<hlayout style="text-align:center">
+				Observaciones:
+				<textbox id="observaciones" multiline="true" hflex="1" height="75px" />
+			</hlayout>
+			
+			<hlayout>
+			<button label="Subir Imagen" upload="true,maxsize=300">
+        		<attribute name="onUpload"><![CDATA[
+		            org.zkoss.util.media.Media media = event.getMedia();
+		            if (media instanceof org.zkoss.image.Image) {
+		                org.zkoss.zul.Image image = new org.zkoss.zul.Image();
+		                image.setContent(media);
+		                image.setParent(pics);
+		            } else {
+		                Messagebox.show("No cargó una imagen: "+media, "Error", Messagebox.OK, Messagebox.ERROR);
+		                break;
+		            }
+		        ]]></attribute>
+		    </button>
+		    <separator />
+    		<vlayout id="pics" height="200px" style="overflow:auto" />
+			
+			</hlayout>
+			
+			<hlayout>
+				<button id="atras" label="Atrás"/>
+		    	<button id="guardar" label="Guardar Inmueble"/>
+		    </hlayout>
+		    </panelchildren>
+         </panel>
+        </window>
+        
+        </center>
+        <south height="50px" border="none">
+            <include src="/pagina-general/footer.zul"/>
+        </south>
+    </borderlayout>
+</zk>

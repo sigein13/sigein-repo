@@ -1,0 +1,61 @@
+
+<window id="ventana" apply="controlador.consultaInmueble.ControladorConsultaInmueble" title="Consulta Inmueble" border="normal" width="86%" height="100%">
+<style src="/estilo/estilo-principal.css" dynamic="true"/>
+<grid>
+	
+	<rows>
+        <row>
+		<cell colspan="3" style="text-align:center"  >
+			<hlayout>
+				<label value="Tipo: " width="150px" />
+				<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('controladores.controladoresComboBox.ControladorTipoInm')" >
+				<combobox id="comboInm" width="75px" model="@load(vm.tiposInm)" 
+				selectedItem="@bind(vm.tipoInm)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+                <label id="labelDormitorio" value="Dormitorio: " width="150px" />
+                <combobox id="comboDormitorio">
+                  <comboitem label="0"/>
+                  <comboitem label="1"/>
+                  <comboitem label="2"/>
+                  <comboitem label="3 o mas"/>
+               </combobox>           
+	        </hlayout>
+	    </cell>
+        </row>
+        
+         <row>
+        <cell colspan="3" style="text-align:center" height="30px">
+        	<hlayout>
+        		<label value="Provincia: " width="150px" />
+        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmProv') @init('controladores.controladoresComboBox.ControladorProvincia')" >
+				<combobox id="comboProvincia" width="125px" model="@load(vmProv.provincias)" 
+				selectedItem="@bind(vmProv.provincia)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+               <label value="Localidad: " width="150px" />
+        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmLoc') @init('controladores.controladoresComboBox.ControladorLocalidad')" >
+				<combobox id="comboLocalidad" width="125px" model="@load(vmLoc.localidades)" 
+				selectedItem="@bind(vmLoc.localidad)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+                
+                
+                 <label value="Barrio: " width="150px" />
+        		<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vmBar') @init('controladores.controladoresComboBox.ControladorBarrio')" >
+				<combobox id="comboBarrio" width="125px" model="@load(vmBar.barrios)"
+					selectedItem="@bind(vmBar.barrio)">
+                	<comboitem label="@load(each)"/>
+                </combobox>
+                </div>
+                
+               
+        	</hlayout>
+        </cell>
+        </row>
+	</rows>
+</grid>
+</window>

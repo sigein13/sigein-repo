@@ -1,8 +1,39 @@
-<?page title="Auto Generated index.zul"?>
-<window title="Hello World!!" border="normal" width="200px">
+<?page title="..:: SigeiM ::.."?>
+<zk>
+    <borderlayout hflex="1" vflex="1">
+        <north height="200px" border="none" >
+            <include src="/pagina-general/banner.zul"/>
+        </north>
+        <west width="230px" border="0" flex="true" splittable="true" 
+         minsize="300">
+                 <include src="/pagina-general/oeste.zul"/>
+        </west>
 
-<label value="You are using: ${desktop.webApp.version}"/>
-
-<textbox id="txbNombre"></textbox>
-
-</window>
+        <east width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/este.zul"/>
+        </east>
+        <center id="mainContent" autoscroll="true" style="background:#abd2f6" border="2">
+            
+            <window title="ABM Propietario" border="normal" width="86%" height="100%">
+            <style src="/estilo/estilo-principal.css" dynamic="true"/>
+            
+            <cell colspan="3" style="text-align:center" height="30px">
+            	<label sclass="titulo1">
+					Bienvenido al sistema de Gestión Inmobiliaria | SigeiN.
+				</label>
+			</cell>
+            <cell colspan="3" style="text-align:center" height="30px">
+				<hlayout>
+					Para dar de alta, baja o modificar algún propietario, 
+						<a href="/zul/ABMPropietario/AbmPropietario.zul"> Click aquí.</a>
+		        </hlayout>
+	   		</cell>
+            
+			</window>
+			
+        </center>
+        <south height="50px" border="none">
+            <include src="/pagina-general/footer.zul"/>
+        </south>
+    </borderlayout>
+</zk>

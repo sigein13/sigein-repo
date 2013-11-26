@@ -2,6 +2,7 @@
     <wb-module deploy-name="sigein-FE">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/controladora-interfaz"/>
         <property name="context-root" value="sigein-FE"/>
         <property name="java-output-path" value="/sigein-FE/build/classes"/>
     </wb-module>

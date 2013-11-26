@@ -1,0 +1,83 @@
+<?page title="..:: SigeiM ::.."?>
+<zk>
+    <borderlayout hflex="1" vflex="1">
+        <north height="100px" border="none" >
+            <include src="/pagina-general/banner.zul"/>
+        </north>
+        <west width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/oeste.zul"/>
+        </west>
+        <east width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/este.zul"/>
+        </east>
+        <center id="mainContent" autoscroll="true">
+        
+        <window id="ventana" apply="controlador.ABMInmueble.ControladorABMInmueble" 
+        title="ABM Inmueble" border="normal" width="100%" height="100%">
+            <hlayout style="text-align:center">
+				Elija el propietario del inmueble que desea dar de alta, modificar o eliminar.
+			</hlayout>
+            <grid>	
+			<rows>
+				<row>
+				<cell colspan="3" style="text-align:center" height="30px">
+					<hlayout>
+						<label value="Tipo DNI: " width="150px" />
+						<div apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('controladores.controladoresComboBox.controladorTipoDNI')" >
+						<combobox id="comboDNI" width="75px" model="@load(vm.tiposDNI)" 
+						selectedItem="@bind(vm.tipoDNI)">
+		                	<comboitem label="@load(each)"/>
+		                </combobox>
+		                </div>
+		                <label value="Numero: " width="150px" />
+		                <intbox id="numeroDNI" constraint="no negative" width="150px" maxlength="8"/>
+		                <button id="buscarDNI" label="Buscar Propietario" />
+			        </hlayout>
+			        <hlayout id="muestraPropietario" >
+			        	<label id="nombrePropietario" width="150px"/>
+			        	<label id="apellidoPropietario" width="150px"/>
+			        </hlayout>
+	    		</cell>
+	    		</row>
+	    	</rows>
+	    	</grid>
+	    	
+	    	<hlayout>
+	    	<listbox id="todoListbox" mold="paging" pageSize="10" vflex="1" >
+					<listhead id="listHead">
+						<listheader label="Provincia" width="20%" />
+						<listheader	label="Ciudad" width="20%" />
+						<listheader	label="Calle" width="20%" />
+						<listheader	label="Número" width="8%" />
+						<listheader	label="Piso" width="8%" />
+						<listheader	label="Inmueble" width="8%" />
+						<listheader	label="Acción" width="16%" />
+					</listhead>
+					<template id="template" name="model">
+					<listitem >
+						<listcell label="${each.provincia}" />
+						<listcell label="${each.localidad}" />
+						<listcell label="${each.calle}" />
+						<listcell label="${each.numero}" />
+						<listcell label="${each.piso}" />
+						<listcell label="${each.tipoInmueble}" />
+						<listcell>
+							<button  label="M" width="36px"/>
+							<button  label="B" width="36px"/>
+						</listcell>	
+					</listitem>
+					</template>
+					
+				</listbox>
+	    	</hlayout>
+	    	<hlayout>
+				<button id="cargaInmueble" label="Cargar Inmueble"/>
+			</hlayout>
+        </window>
+        	
+        </center>
+        <south height="50px" border="none">
+            <include src="/pagina-general/footer.zul"/>
+        </south>
+    </borderlayout>
+</zk>
