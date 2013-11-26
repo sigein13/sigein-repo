@@ -44,13 +44,13 @@ public class ControladorABMPropietario extends SelectorComposer<Window>{
 			if(par!=null){
 				dni = new DNIDTO(comboDNI.getValue(), numeroDNI.intValue());
 //				Acá tuviese que buscar el propietario a la base de datos.
-				propietario = new PropietarioDTO("juan", "jacob", dni, "calle", 100, "provincia", "localidad", "3496-656308", "juanpablojacob@hotmail.com");
+//				propietario = new PropietarioDTO("juan", "jacob", dni, "calle", 100, "provincia", "localidad", "3496-656308", "juanpablojacob@hotmail.com");
 				muestraPropietario.setVisible(true);
 				nombrePropietario.setValue("Nombre: "+propietario.getNombre());
 				apellidoPropietario.setValue(" / Apellido: "+ propietario.getApellido());
 				
 				modificarPropietario.setVisible(true);
-				nombrePropitarioMod.setValue(propietario.getNombre());
+			/*	nombrePropitarioMod.setValue(propietario.getNombre());
 				apellidoPropietarioMod.setValue(propietario.getApellido());
 				comboDNIMod.setValue(propietario.getDni().getTipoDNI());
 				numeroDNIMod.setValue(propietario.getDni().getNumeroDNI());
@@ -59,7 +59,7 @@ public class ControladorABMPropietario extends SelectorComposer<Window>{
 				comboProvinciaMod.setValue(propietario.getProvincia());
 				comboLocalidadMod.setValue(propietario.getLocalidad());
 				numeroTelefonoMod.setValue(propietario.getTelefono());
-				emailMod.setValue(propietario.getEmail());
+				emailMod.setValue(propietario.getEmail());*/
 				
 			}
 			else{
@@ -88,10 +88,6 @@ public class ControladorABMPropietario extends SelectorComposer<Window>{
 	}
 	@Listen("onClick=#btnModificar")
 	public void modificarPropietario(){
-		PropietarioDTO propietarioNuevo = new PropietarioDTO(nombrePropitarioMod.getValue(), apellidoPropietarioMod.getValue(),
-				new DNIDTO(comboDNIMod.getValue(), numeroDNIMod.getValue()),
-				nombreCalleMod.getValue(), numeroCalleMod.intValue(), comboProvinciaMod.getValue(),
-				comboLocalidadMod.getValue(), numeroTelefonoMod.getValue(), emailMod.getValue());
 		//Acá se manda a un método de la lógica el propietarioDTO y se modifica.
 		Clients.showNotification("Se modificó correctamente");
 		Executions.sendRedirect("ABMPropietario.zul");

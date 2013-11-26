@@ -39,10 +39,7 @@ public class ControladorAltaPropietario extends SelectorComposer<Window>{
 	}
 	@Listen("onClick=#cargaPropietario")
 	public void cargaPropietario(){
-		PropietarioDTO propietarioNuevo = new PropietarioDTO(nombrePropitario.getValue(), apellidoPropietario.getValue(),
-				new DNIDTO(comboDNI.getValue(), numeroDNI.getValue()),
-				nombreCalle.getValue(), numeroCalle.intValue(), comboProvincia.getValue(),
-				comboLocalidad.getValue(), numeroTelefono.getValue(), email.getValue());
+		
 //		Acá se mandaría a un método de la lógica para cargar el propietario.
 	}
 	@Listen("onClick=#cargaLocalidad")

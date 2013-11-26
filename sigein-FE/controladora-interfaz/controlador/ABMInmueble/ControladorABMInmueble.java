@@ -29,7 +29,7 @@ public class ControladorABMInmueble extends SelectorComposer<Window>{
 	@Wire Listbox todoListbox;
 	
 	private PropietarioDTO propietario = null;
-	private DNIDTO dni = new DNIDTO(null, 35452519);
+	private TipoDocumentoDTO dni = new TipoDocumentoDTO(0, "DNI");
 	
 	
 //	Lista de inmueble que tuviese que recibir de la base de datos asociada a un usuario.
@@ -44,10 +44,10 @@ public class ControladorABMInmueble extends SelectorComposer<Window>{
 		String par=Executions.getCurrent().getParameter("dni");
 		
 		if(par!=null){
-			int numDNI = Integer.parseInt(par);
-			dni = new DNIDTO(comboDNI.getValue(), numDNI);
+			/*int numDNI = Integer.parseInt(par);
+			dni = new TipoDocumentoDTO(numDNI, "DNI");
 //			Acá tuviese que buscar el propietario a la base de datos y me devolvería un propietarioDTO.
-			propietario = new PropietarioDTO("juan", "jacob", dni, "calle", 100, "provincia", "localidad", "3496-656308", "juanpablojacob@hotmail.com");
+			propietario = new PropietarioDTO(0, "Juan", "Jacob", 3496656308, "Felicia","Chetaje", "juanpablojacob@hotmail.com", dni)
 			comboDNI.setValue(dni.getTipoDNI());
 			numeroDNI.setValue(dni.getNumeroDNI());
 			muestraPropietario.setVisible(true);
@@ -64,7 +64,7 @@ public class ControladorABMInmueble extends SelectorComposer<Window>{
 			inmuebles.add(inm3);
 			todoListbox.setModel(new ListModelList<InmuebleDTO>(inmuebles));
 			
-			
+			*/
 		}
 		else{
 			todoListbox.setVisible(false);
@@ -79,11 +79,11 @@ public class ControladorABMInmueble extends SelectorComposer<Window>{
 		
 		String numero= String.valueOf(nDNI);
 		if(numero.length()>=6){
-			dni.setTipoDNI(tipoDNI);
-			dni.setNumeroDNI(nDNI);
+			dni.setTipoDoc(tipoDNI);
+			dni.setNumero(nDNI);
 //			ACÁ MANDARÍA A LA LÓGICA EL DNIDTO
-			System.out.println("tipo: "+ dni.getTipoDNI() + "numero: "+ dni.getNumeroDNI());
-			Executions.sendRedirect("ABMInmueble.zul?dni="+dni.getNumeroDNI());
+			
+			Executions.sendRedirect("ABMInmueble.zul?dni="+dni.getNumero());
 		}
 		else{
 			Clients.showNotification("El número de documento debe superar los 5 números", numeroDNI);
@@ -91,7 +91,7 @@ public class ControladorABMInmueble extends SelectorComposer<Window>{
 	}
 	@Listen("onClick=#cargaInmueble")
 	public void cargaInmueble(){
-		Executions.sendRedirect("AltaInmueble-1.zul?dni="+dni.getNumeroDNI());
+		Executions.sendRedirect("AltaInmueble-1.zul?dni="+dni.getNumero());
 	}
 	@Listen("onClick=#bajaInmueble")
 	public void bajaInmueble(){
