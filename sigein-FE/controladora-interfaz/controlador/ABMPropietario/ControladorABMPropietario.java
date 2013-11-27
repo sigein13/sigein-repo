@@ -9,6 +9,8 @@ import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.DesktopActivationListener;
 import org.zkoss.zul.*;
 
+import ar.com.sigein.common.dtos.DNIDTO;
+import ar.com.sigein.common.dtos.PropietarioDTO;
 import ClasesDTO.*;
 public class ControladorABMPropietario extends SelectorComposer<Window>{
 	private static final long serialVersionUID = 1L;
