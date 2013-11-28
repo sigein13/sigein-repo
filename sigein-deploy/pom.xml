@@ -9,11 +9,11 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		<dependency>
+		<!-- <dependency>
 			<groupId>ar.com.sigein.persistence</groupId>
 			<artifactId>sigein-persistence</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>

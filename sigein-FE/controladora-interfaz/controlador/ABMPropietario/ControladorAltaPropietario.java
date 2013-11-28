@@ -1,6 +1,7 @@
 package controlador.ABMPropietario;
 
 import org.zkoss.zk.ui.Desktop;
+
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -11,7 +12,7 @@ import org.zkoss.zul.*;
 
 import ar.com.sigein.common.dtos.DNIDTO;
 import ar.com.sigein.common.dtos.PropietarioDTO;
-import ClasesDTO.*;
+
 public class ControladorAltaPropietario extends SelectorComposer<Window>{
 	private static final long serialVersionUID = 1L;
 	

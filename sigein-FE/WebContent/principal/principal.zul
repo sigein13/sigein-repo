@@ -1,0 +1,133 @@
+<?page id="paginaPrincipalId" title="..:: SiGeIn ::.." contentType="text/html;charset=UTF-8" ?>
+<zk>
+	<window id="main" title="Sistema de Gestión Inmobiliaria"
+		border="normal" height="100%"
+		apply="ar.com.sigein.principal.PrincipalComp"
+		contentStyle="overflow:auto">
+		<style dynamic="true">
+			.input_upper { text-transform: uppercase; }
+		</style>
+		<div
+			style="border: 1px; border-style:solid; border-color:#323334;">
+			<borderlayout height="200px" width="100%">
+				<north size="100%" splittable="true" collapsible="true"
+					border="0">
+					<include src="/pagina-general/banner.zul" />
+				</north>
+			</borderlayout>
+
+			<menubar id="menuPrincipalComp" autodrop="true" width="100%"
+				style="border: 1px">
+				<menu label="ABM Propietario"
+					image="/imgs/iconos_menu/procesamiento16.png" width="60px">
+					<menupopup>
+						<menuitem label="Alta Propietario"
+							image="/imgs/iconos_menu/checkIn.png" onClick="abrirCU(self.label)"/>
+						<menuseparator />
+						<menuitem label="Modificar Propietario"
+							image="/imgs/iconos_menu/gestPas.png"
+							onClick="abrirCU(self.label)" />
+						<menuseparator />
+						<menuitem label="Baja Propietario"
+							image="/imgs/iconos_menu/checkIn.png" />
+					</menupopup>
+				</menu>
+				<menu label="ABM Vendedor"
+					image="/imgs/iconos_menu/consultasReportes.png">
+					<menupopup>
+						<menuitem label="Alta Vendedor"
+							image="/imgs/iconos_menu/cancelReserva.png" />
+						<menuseparator />
+						<menuitem label="Modificar Vendedor"
+							image="/imgs/iconos_menu/gestPas.png" />
+						<menuseparator />
+						<menuitem label="Baja Vendedor"
+							image="/imgs/iconos_menu/gestPas.png"
+							onClick="abrirCU(self.label)" />
+					</menupopup>
+				</menu>
+				<menu label="ABMC Inmueble"
+					image="/imgs/iconos_menu/administracion.png">
+					<menupopup>
+						<menuitem label="ABM Inmueble"
+							image="/imgs/iconos_menu/facturar2.png"
+							onClick="abrirCU(self.label)" />
+						<menuseparator />
+						<menuitem label="Consulta de Inmueble"
+							image="" />
+					</menupopup>
+				</menu>
+			</menubar>
+		</div>
+
+		<!-- INICIO - Contenedor de Todas las pantallas -->
+
+		<vbox id="contenedorCentral" width="100%" height="100%">
+			<div id="divBanner" align="center">
+				<box orient="vertical" align="center">
+					<hbox height="70px">
+
+					</hbox>
+					<hbox>
+						<flash style="border: 3px;" src="/imgs/Video Presentacion.swf" loop="true"
+												height="300" width="500">
+											</flash>
+					</hbox>
+					<hbox align="center">
+						Bienvenido a SI.GE.IN. - Sistema de Gestión
+						Inmobiliaria
+					</hbox>
+				</box>
+			</div>
+		</vbox>
+
+		<!-- FIN - Contenedor de Todas las pantallas -->
+		<zscript language="Java" >
+	// Maneja todo el comportamiento del menu
+	// Metodo que se ejecuta cuando se presiona una opcion del menu de consultor
+	public void abrirCU(String cu) {
+
+		// Eliminamos la ventana actual para no tener problemas de ids
+		try {
+			contenedorCentral.removeChild(contenedorCentral.getFellow("main2"));
+		} catch (Exception e) {
+
+		} finally {
+
+			//Oculto el banner de inicio
+			divBanner.setVisible(false);
+
+			//Buscamos la opcion de menu que se presionó
+			if (cu.equals("Alta Propietario")) {
+				contenedorCentral.appendChild(Executions.createComponents(
+						"/zul/ABMPropietario/AbmPropietario.zul",
+						new Window(), null));
+			} else if (cu.equals("Gestión de puestos")) {
+				contenedorCentral.appendChild(Executions.createComponents(
+						"/zul/administracion/abmPuestos.zul", new Window(),
+						null));
+			} else if (cu.equals("Evaluar candidatos")) {
+				contenedorCentral.appendChild(Executions.createComponents(
+						"/zul/procesamiento/evaluarCandidatos.zul",
+						new Window(), null));
+			} else if (cu.equals("Ordenes de mérito")) {
+				contenedorCentral.appendChild(Executions.createComponents(
+						"/zul/consultasreportes/ordendemerito.zul",
+						new Window(), null));
+			}
+
+		}
+	}
+</zscript>
+		<panel id="panelbusqueda" visible="false" title="Principal">
+			<panelchildren>
+				<groupbox mold="3d">
+					<hbox>
+
+					</hbox>
+				</groupbox>
+
+			</panelchildren>
+		</panel>
+	</window>
+</zk>

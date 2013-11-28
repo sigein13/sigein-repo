@@ -11,6 +11,7 @@
 	
 	<modules>
 		<module>sigein-persistence</module>
+		<module>sigein-common</module>
 		<module>sigein-deploy</module>
 	</modules>
 	

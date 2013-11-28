@@ -1,17 +1,21 @@
 package controlador.ABMPropietario;
 
-import org.zkoss.zk.ui.Desktop;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
-import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.select.annotation.Listen;
+import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
-import org.zkoss.zk.ui.util.DesktopActivationListener;
-import org.zkoss.zul.*;
+import org.zkoss.zul.Combobox;
+import org.zkoss.zul.Grid;
+import org.zkoss.zul.Hlayout;
+import org.zkoss.zul.Intbox;
+import org.zkoss.zul.Label;
+import org.zkoss.zul.Textbox;
+import org.zkoss.zul.Window;
 
 import ar.com.sigein.common.dtos.DNIDTO;
 import ar.com.sigein.common.dtos.PropietarioDTO;
-import ClasesDTO.*;
+
 public class ControladorABMPropietario extends SelectorComposer<Window>{
 	private static final long serialVersionUID = 1L;
 	

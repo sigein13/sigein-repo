@@ -1,8 +1,85 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>ar.com.sigein.deploy</groupId>
-  <artifactId>sigein-deploy</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <name>SIGEIN PROJECT</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ar.com.sigein.deploy</groupId>
+	<artifactId>sigein-deploy</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>sigein-deploy Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<!-- <dependency>
+			<groupId>ar.com.sigein.persistence</groupId>
+			<artifactId>sigein-persistence</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency> -->
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>3.2.5.RELEASE</version>
+		</dependency>
+
+
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>remote-exploded-deploy-desarrollo</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.7</version>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<configuration>
+									<tasks>
+
+										<!--<property name="archive-path" value="C:\jboss-4.2.2.GA\server\default\deploy\sigecomp-deploy-1.0-SNAPSHOT.war" 
+											/> -->
+										<property name="archive-path"
+											value="R:\bin\jboss-4.2.2.GA\server\default\deploy\sigein-deploy-1.0-SNAPSHOT.war" />
+
+										<delete file="${archive-path}" quiet="true"></delete>
+
+										<mkdir dir="${archive-path}" />
+
+										<sync todir="${archive-path}" verbose="true" overwrite="true">
+											<fileset
+												dir="${project.build.directory}\${project.build.finalName}" />
+										</sync>
+
+
+									</tasks>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+				</plugins>
+			</build>
+			<properties>
+				<unpack>true</unpack>
+				<env>prod</env>
+			</properties>
+		</profile>
+	</profiles>
+
+	<parent>
+		<groupId>ar.com.sigein</groupId>
+		<artifactId>sigein</artifactId>
+		<version>1.0</version>
+	</parent>
+
 </project>

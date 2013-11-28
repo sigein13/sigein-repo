@@ -1,6 +1,7 @@
 package controlador.ABMInmueble;
 
 import org.zkoss.zk.ui.Desktop;
+
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Wire;
@@ -10,7 +11,6 @@ import org.zkoss.zk.ui.util.DesktopActivationListener;
 import org.zkoss.zul.*;
 
 import clases.Localidad;
-import ClasesDTO.*;
 
 
 public class ControladorAltaInmueble1 extends SelectorComposer<Window>{
