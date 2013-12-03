@@ -1,0 +1,63 @@
+<vlayout width="300px" height="450px" >
+   <label value="Detelle Imuebles" style="font-size: 14px; font-weight: bold;" /> 
+    <grid>
+        <rows>
+            <row>
+                Identificador:
+                <label value="${orderItem.idInmueble}" />
+            </row>
+            <row>
+            	Precio Venta:
+            	<label value="${orderItem.precioVenta}" />
+            </row>
+         	<row>
+            	Precio Venta:
+            	<label value="${orderItem.precioVenta}" />
+            </row>
+            <row>
+            	Frente:
+            	<label value="${orderItem.frente}" />
+            </row>
+            <row>
+            	Fondo:
+            	<label value="${orderItem.fondo}" />
+            </row>
+            <row>
+            	Cantidad Dormitorios:
+            	<label value="${orderItem.dormitorio}" />
+            </row>
+            <row>
+            	Cantidad Baños:
+            	<label value="${orderItem.banio}" />
+            </row>
+            <row>
+            	Antigüedad:
+            	<label value="${orderItem.antiguedad}" />
+            </row>
+            <row>
+            	Orientación:
+            	<label value="${orderItem.orientacion.descripcion}" />
+            </row>
+            <row>
+            	Tipo Inmueble:
+            	<label value="${orderItem.tipoInmueble.descripcion}" />
+            </row>
+            <row>
+            	Propietario:
+            	<label value="${orderItem.propietario.nombre} ${orderItem.propietario.apellido}" />
+            </row>
+            <row>
+            	Localidad:
+            	<label value="${orderItem.localidad.nombreLocalidad}" />
+            </row>
+            <row>
+            	Provincia:
+            	<label value="${orderItem.localidad.provincia.nombreProvincia}" />
+            </row>
+            <row>
+            	Barrio:
+            	<label value="${orderItem.barrio.nombreBarrio}" />
+            </row>
+        </rows>
+    </grid>
+</vlayout>

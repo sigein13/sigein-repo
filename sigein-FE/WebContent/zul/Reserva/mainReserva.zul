@@ -1,0 +1,63 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window id="win" apply="controlador.reserva.ControladorReserva" 
+title="Reserva Inmueble" border="normal" width="100%" height="100%">
+<style src="/estilo/estilo-principal.css" dynamic="true"/>
+	<hlayout width="100%" style="padding:10px">
+		<grid width="640px" model="${win$composer.inmuebles}">
+            <columns>
+                <column label="Código inmueble" align="center" width="100px"/>
+                <column label="Tipo Inmueble" align="center" width="100px"/>
+                <column label="Localidad" align="center" width="80px"/>
+                <column label="Dirección" align="center" width="100px"/>
+                <column label="N° calle" align="center" width="100px"/>
+                <column label="Precio" align="center" width="60px"/>
+                <column label="" align="center" width="100px"/>     
+            </columns>
+            <template name="model">
+            <row > 
+                
+                <label value="${each.idInmueble}" />   
+            	<label value="${each.tipoInmueble.descripcion}" /> 
+                <label value="${each.localidad.nombreLocalidad}" />
+                <label value="${each.direccion.nombreCalle}" />
+                <label value="${each.direccion.numeroCalle}" />
+                <label value="${each.precioVenta}" />
+                
+                	
+                	<div>
+                    <popup id="detail_${each.idInmueble}">
+                    	<include src="/zul/Reserva/PopUpVerMas.zul" orderItem="${each}" />
+                    </popup>
+                    <button label="Ver más" onClick='detail_1.open(self, "end_before");'/>
+                    
+                	</div>
+                
+            	
+            </row>
+            </template>
+        </grid>
+	
+	<vbox spacing="10px" width="24px">
+        <image style="cursor:pointer" id="chooseAllBtn" src="/imgs/rightrightarrow_g.png" />
+        <image style="cursor:pointer" id="chooseBtn" src="/imgs/rightarrow_g.png" />
+        <image style="cursor:pointer" id="removeBtn" src="/imgs/leftarrow_g.png" />
+        <image style="cursor:pointer" id="removeAllBtn" src="/imgs/leftleftarrow_g.png" />
+    </vbox>
+    <listbox width="220px">
+    	<listhead>
+			<listheader label="Cód. Inm" width="80px"></listheader>
+            <listheader label="Precio" width="60px"></listheader>
+            <listheader label="" width="80px"></listheader>
+		</listhead>
+		<listitem>
+			<listcell></listcell>
+			<listcell></listcell>
+			<listcell> <button label="Ver mas" /></listcell>
+		</listitem>
+    </listbox>
+	</hlayout>
+	
+	
+</window>
+</zk>

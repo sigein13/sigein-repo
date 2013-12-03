@@ -1,0 +1,22 @@
+<?page title="..:: SigeiM ::.."?>
+<zk>
+    <borderlayout hflex="1" vflex="1">
+        <north height="100px" border="none" >
+            <include src="/pagina-general/banner.zul"/>
+        </north>
+        <west width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/oeste.zul"/>
+        </west>
+        <east width="200px" border="none"  minsize="300">
+            <include src="/pagina-general/este.zul"/>
+        </east>
+        <center id="mainContent" autoscroll="true">
+            
+            <include src="/zul/Reserva/mainReserva.zul"/>
+			
+        </center>
+        <south height="50px" border="none">
+            <include src="/pagina-general/footer.zul"/>
+        </south>
+    </borderlayout>
+</zk>
